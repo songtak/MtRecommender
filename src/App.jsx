@@ -1,84 +1,94 @@
 import React, { useState } from "react";
-import "./App.css";
-// import Mountain from "./Mountain";
-// import bac from "./bac.json";
-import DatePicker from "@mui/lab/DatePicker";
-import { TextField, Button } from "@mui/material";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import koLocale from "date-fns/locale/ko";
-import moment from "moment";
+import "./Web.css";
+import "./Common.css";
+import "./Mobile.css";
+
+import { Main, First, Second, Third, Result } from "./section";
 import _ from "lodash";
 
 function App() {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [isStart, setIsStart] = useState(false);
+  const [userName, setUserName] = useState("");
 
-  const [tenGroups, setTenGroups] = useState([]);
-  const [twentyGroups, setTwentyGroups] = useState([]);
-  const [fiveProperties, setFiveProperties] = useState([]);
+  const [firstGroups, setFirstGroups] = useState([]);
+  const [secondGroups, setSecondGroups] = useState([]);
+  const [selectedMountain, setSelectedMountain] = useState({});
 
-  /**
-   * @description 생년월일 입력
-   * @param {*} date
-   */
-  const handleClickSaveBirthDate = () => {
-    if (_.isDate(selectedDate)) {
-      // reduceBirthDate(moment(selectedDate).format("YYMMDD"));
-    } else {
-      setSelectedDate(null);
-    }
+  const init = () => {
+    setIsStart(false);
+    setFirstGroups([]);
+    setSecondGroups([]);
+    setSelectedMountain({});
   };
 
-  // /**
-  //  * @description 생년월일 합산
-  //  */
-  // const reduceBirthDate = date => {
-  //   const selectedDateArr = [...date];
-  //   let result = 0;
-  //   selectedDateArr.forEach(num => {
-  //     result += Number(num);
-  //   });
-  //   setListOfLastNumber(result.toString().slice(-1));
-  // };
+  const handleClickInstagram = () => {
+    window.open(
+      "https://instagram.com/mt_gazzagaebalja?utm_medium=copy_link",
+      "_blank"
+    );
+  };
+  const handleClickOpenKakaoTalk = () => {
+    window.open("https://open.kakao.com/o/gu0FxSHd", "_blank");
+  };
 
-  // /**
-  //  * @description 취득
-  //  * @param {*} lastNumber
-  //  */
-  // const setListOfLastNumber = lastNumber => {
-  //   const matchOfLastNumberArr = bac.filter(
-  //     item => item.id.toString().slice(-1) === lastNumber
-  //   );
-  //   setTenGroups(matchOfLastNumberArr);
-  // };
+  // console.log("까꿍~");
+  console.log("이 로그는 1955년 영국에서부터 시작되었으며");
+  console.log("가짜산악회에 가입하지 않을 시");
+  console.log("꼭 배포 후 처음 본 에러가 발생한다고 한다...");
 
   return (
-    <div style={{ paddingTop: "400px" }} className="App">
-      <LocalizationProvider dateAdapter={AdapterDateFns} locale={koLocale}>
-        <DatePicker
-          label="생년월일"
-          value={selectedDate}
-          onChange={newValue => {
-            setSelectedDate(newValue);
-          }}
-          renderInput={params => <TextField {...params} />}
-        />
-      </LocalizationProvider>
-      <Button
-        onClick={handleClickSaveBirthDate}
-        disabled={selectedDate === null}
-      >
-        저장
-      </Button>
-      <div>
-        0. 입력받은 생년월일 합산된 값의 일의 자리 취득 (예: 930227, 23, 3)
+    <div>
+      <div className="App">
+        <div className="title" onClick={init}>
+          <span className="button">가짜개발자 산악회</span>
+        </div>
+        <div className="body">
+          {!isStart && <Main setIsStart={setIsStart} />}
+
+          {isStart && _.isEmpty(firstGroups) && (
+            <First
+              setGroups={setFirstGroups}
+              disabled={!_.isEmpty(firstGroups)}
+              setUserName={setUserName}
+              userName={userName}
+            />
+          )}
+          {!_.isEmpty(firstGroups) && _.isEmpty(secondGroups) && (
+            <Second
+              setGroups={setSecondGroups}
+              ascendingMountains={firstGroups}
+              userName={userName}
+            />
+          )}
+          {!_.isEmpty(secondGroups) && _.isEmpty(selectedMountain) && (
+            <Third
+              setSelectedMountain={setSelectedMountain}
+              ascendingMountains={secondGroups}
+              userName={userName}
+            />
+          )}
+          {!_.isEmpty(selectedMountain) && (
+            <Result selectedMountain={selectedMountain} userName={userName} />
+          )}
+        </div>
+        <div className="footer">
+          <div>
+            <div
+              className="insta_link_button"
+              style={{ paddingBottom: "8px" }}
+              onClick={handleClickInstagram}
+            >
+              <span>가짜산악회 인스타</span>
+            </div>
+            <div
+              className="kakao_link_button"
+              onClick={handleClickOpenKakaoTalk}
+            >
+              <span>가짜산악회 오픈카톡방</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div>1. 일의 자리가 같은 것끼리 묶음 (그룹 10개/객체 10개)</div>
-      <div>
-        2. 1번에서 묶인 그룹을 두 개의 그룹으로 나눔(단, 나뉜 그룹의 평균 높이의
-        차가 최소일 것) (그룹 20개 / 객체 5개)
-      </div>
-      <div>(각 그룹의 산높이 오름차순으로 정렬)</div>
     </div>
   );
 }
