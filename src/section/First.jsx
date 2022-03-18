@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import bac from "../bac.json";
 import kor_bac from "../kor_bac.json";
 
 import DatePicker from "@mui/lab/DatePicker";
