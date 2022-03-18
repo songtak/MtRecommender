@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 // import Mountain from "./Mountain";
-import bac from "./bac.json";
+// import bac from "./bac.json";
 import DatePicker from "@mui/lab/DatePicker";
 import { TextField, Button } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
@@ -23,34 +23,34 @@ function App() {
    */
   const handleClickSaveBirthDate = () => {
     if (_.isDate(selectedDate)) {
-      reduceBirthDate(moment(selectedDate).format("YYMMDD"));
+      // reduceBirthDate(moment(selectedDate).format("YYMMDD"));
     } else {
       setSelectedDate(null);
     }
   };
 
-  /**
-   * @description 생년월일 합산
-   */
-  const reduceBirthDate = date => {
-    const selectedDateArr = [...date];
-    let result = 0;
-    selectedDateArr.forEach(num => {
-      result += Number(num);
-    });
-    setListOfLastNumber(result.toString().slice(-1));
-  };
+  // /**
+  //  * @description 생년월일 합산
+  //  */
+  // const reduceBirthDate = date => {
+  //   const selectedDateArr = [...date];
+  //   let result = 0;
+  //   selectedDateArr.forEach(num => {
+  //     result += Number(num);
+  //   });
+  //   setListOfLastNumber(result.toString().slice(-1));
+  // };
 
-  /**
-   * @description 취득
-   * @param {*} lastNumber
-   */
-  const setListOfLastNumber = lastNumber => {
-    const matchOfLastNumberArr = bac.filter(
-      item => item.id.toString().slice(-1) === lastNumber
-    );
-    setTenGroups(matchOfLastNumberArr);
-  };
+  // /**
+  //  * @description 취득
+  //  * @param {*} lastNumber
+  //  */
+  // const setListOfLastNumber = lastNumber => {
+  //   const matchOfLastNumberArr = bac.filter(
+  //     item => item.id.toString().slice(-1) === lastNumber
+  //   );
+  //   setTenGroups(matchOfLastNumberArr);
+  // };
 
   return (
     <div style={{ paddingTop: "400px" }} className="App">
