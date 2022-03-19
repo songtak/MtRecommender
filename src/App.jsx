@@ -71,23 +71,28 @@ function App() {
             <Result selectedMountain={selectedMountain} userName={userName} />
           )}
         </div>
-        <div className="footer">
-          <div>
-            <div
-              className="insta_link_button"
-              style={{ paddingBottom: "8px" }}
-              onClick={handleClickInstagram}
-            >
-              <span>가짜산악회 인스타</span>
+        {!isStart && (
+          <div className="footer">
+            <div style={{ fontSize: "8px", color: "teal" }}>
+              아직 미완성이에요...
             </div>
-            <div
-              className="kakao_link_button"
-              onClick={handleClickOpenKakaoTalk}
-            >
-              <span>가짜산악회 오픈카톡방</span>
+            <div>
+              <div
+                className="insta_link_button"
+                style={{ paddingBottom: "8px" }}
+                onClick={handleClickInstagram}
+              >
+                <span>가짜산악회 인스타</span>
+              </div>
+              <div
+                className="kakao_link_button"
+                onClick={handleClickOpenKakaoTalk}
+              >
+                <span>가짜산악회 오픈카톡방</span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
