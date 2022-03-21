@@ -3,7 +3,7 @@ import "./Web.css";
 import "./Common.css";
 import "./Mobile.css";
 
-import { Main, First, Second, Third, Result } from "./section";
+import { Main, Section1, Section2, Section3, Result } from "./section";
 import _ from "lodash";
 
 function App() {
@@ -46,7 +46,7 @@ function App() {
           {!isStart && <Main setIsStart={setIsStart} />}
 
           {isStart && _.isEmpty(firstGroups) && (
-            <First
+            <Section1
               setGroups={setFirstGroups}
               disabled={!_.isEmpty(firstGroups)}
               setUserName={setUserName}
@@ -54,14 +54,14 @@ function App() {
             />
           )}
           {!_.isEmpty(firstGroups) && _.isEmpty(secondGroups) && (
-            <Second
+            <Section2
               setGroups={setSecondGroups}
               ascendingMountains={firstGroups}
               userName={userName}
             />
           )}
           {!_.isEmpty(secondGroups) && _.isEmpty(selectedMountain) && (
-            <Third
+            <Section3
               setSelectedMountain={setSelectedMountain}
               ascendingMountains={secondGroups}
               userName={userName}

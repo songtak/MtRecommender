@@ -1,7 +1,7 @@
 import Main from "./Main";
-import First from "./First";
-import Second from "./Second";
-import Third from "./Third";
+import Section1 from "./Section1";
+import Section2 from "./Section2";
+import Section3 from "./Section3";
 import Result from "./Result";
 
-export { Main, First, Second, Third, Result };
+export { Main, Section1, Section2, Section3, Result };

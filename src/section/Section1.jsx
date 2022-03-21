@@ -13,7 +13,7 @@ import CalendarPicker from "@mui/lab/CalendarPicker";
 
 import _ from "lodash";
 
-const First = props => {
+const Section1 = props => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   // const maountains = bac;
@@ -100,4 +100,4 @@ const First = props => {
   );
 };
 
-export default First;
+export default Section1;

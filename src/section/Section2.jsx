@@ -1,6 +1,6 @@
 import React from "react";
 
-const Second = props => {
+const Section2 = props => {
   const ascendingMountains = props.ascendingMountains;
   const handleClickItem = id => {
     switch (id) {
@@ -77,4 +77,4 @@ const Second = props => {
   );
 };
 
-export default Second;
+export default Section2;
