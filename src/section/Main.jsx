@@ -1,6 +1,6 @@
 import React from "react";
 
-const Main = props => {
+const Main = (props) => {
   return (
     <>
       <div className="contents_title">산을... 좋아하는... 분덜...께</div>
@@ -10,7 +10,7 @@ const Main = props => {
       <div className="contents_title" style={{ paddingTop: "62px" }}>
         산림청이...선정한...100대 명산...
       </div>
-      <div style={{ paddingTop: "16px" }}>(* 틀딱된 기념) </div>
+      {/* <div style={{ paddingTop: "16px" }}>(* 틀딱된 기념) </div> */}
       <div
         className="start_button"
         onClick={() => {

@@ -73,9 +73,9 @@ function App() {
         </div>
         {!isStart && (
           <div className="footer">
-            <div style={{ fontSize: "8px", color: "teal" }}>
+            {/* <div style={{ fontSize: "8px", color: "teal" }}>
               아직 미완성이에요...
-            </div>
+            </div> */}
             <div>
               <div
                 className="insta_link_button"
