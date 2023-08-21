@@ -263,9 +263,20 @@ const Result = (props) => {
         100대 명산 선정이유
       </div>
       <div className="padding_bottom">{props.selectedMountain?.reason}</div>
-      <div className="bold padding_bottom" style={{ fontSize: "24px" }}>
+      <div className="bold" style={{ fontSize: "24px" }}>
         상세 정보
       </div>
+      <div
+        className="padding_bottom"
+        style={{ fontSize: "14px", color: "GrayText" }}
+      >
+        <span>(* 상세 정보는 </span>
+        <a style={{ fontWeight: "700" }} href="https://www.komount.or.kr/">
+          한국등산트레킹지원센터
+        </a>
+        <span>에서 지원받고 있습니다.)</span>
+      </div>
+
       <div className="padding_bottom ">
         {!_.isEmpty(peak) && (
           <>
