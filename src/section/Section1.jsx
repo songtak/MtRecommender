@@ -13,7 +13,7 @@ import CalendarPicker from "@mui/lab/CalendarPicker";
 
 import _ from "lodash";
 
-const Section1 = props => {
+const Section1 = (props) => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   // const maountains = bac;
@@ -27,10 +27,10 @@ const Section1 = props => {
     }
   };
 
-  const reduceBirthDate = date => {
+  const reduceBirthDate = (date) => {
     const selectedDateArr = [...date];
     let result = 0;
-    selectedDateArr.forEach(num => {
+    selectedDateArr.forEach((num) => {
       result += Number(num);
     });
     setListOfLastNumber(result.toString().slice(-1));
@@ -39,14 +39,14 @@ const Section1 = props => {
    * @description 취득
    * @param {*} lastNumber
    */
-  const setListOfLastNumber = lastNumber => {
+  const setListOfLastNumber = (lastNumber) => {
     const matchOfLastNumberArr = maountains.filter(
-      item => item.id.toString().slice(-1) === lastNumber
+      (item) => item.id.toString().slice(-1) === lastNumber
     );
     setAscendingMountains(matchOfLastNumberArr);
   };
 
-  const setAscendingMountains = matchOfLastNumberArr => {
+  const setAscendingMountains = (matchOfLastNumberArr) => {
     const ascendingMountainArr = matchOfLastNumberArr.sort(
       (a, b) => parseFloat(a.height) - parseFloat(b.height)
     );
@@ -56,11 +56,12 @@ const Section1 = props => {
   return (
     <div style={{ height: "400px" }}>
       <div>이름과 생년월일 입력 부탁드리는 부분이구여...</div>
+      <div style={{ color: "gray", fontSize: "8px" }}>(* 입력값 저장 안함)</div>
       <div style={{ paddingTop: "30px" }}>
         <TextField
           label="이름"
           size="small"
-          onChange={e => {
+          onChange={(e) => {
             props.setUserName(e.target.value);
           }}
         />
@@ -75,11 +76,11 @@ const Section1 = props => {
             <DatePicker
               label="생년월일"
               value={selectedDate}
-              onChange={newValue => {
+              onChange={(newValue) => {
                 setSelectedDate(newValue);
               }}
               disabled={props.disabled}
-              renderInput={params => <TextField {...params} size="small" />}
+              renderInput={(params) => <TextField {...params} size="small" />}
             />
           </div>
         </LocalizationProvider>

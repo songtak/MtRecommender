@@ -32,9 +32,6 @@ function App() {
   };
 
   // console.log("까꿍~");
-  console.log("이 로그는 1955년 영국에서부터 시작되었으며");
-  console.log("가짜산악회에 가입하지 않을 시");
-  console.log("꼭 배포 후 처음 본 에러가 발생한다고 한다...");
 
   return (
     <div>
