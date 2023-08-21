@@ -354,11 +354,11 @@ const Result = (props) => {
                   aria-controls="panel2d-content"
                   id="panel2d-header"
                 >
-                  <Typography>{item.placeNm}</Typography>
+                  <Typography>{item.plcNm}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {!_.isEmpty(item.dscrtCn) ? item.dscrtCn : "내용 없음"}
+                    {!_.isEmpty(item.explnCn) ? item.explnCn : "내용 없음"}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -379,11 +379,11 @@ const Result = (props) => {
                   aria-controls="panel2d-content"
                   id="panel2d-header"
                 >
-                  <Typography>{item.placeNm}</Typography>
+                  <Typography>{item.plcNm}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    {!_.isEmpty(item.dscrtCn) ? item.dscrtCn : "내용 없음"}
+                    {!_.isEmpty(item.explnCn) ? item.explnCn : "내용 없음"}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -391,7 +391,16 @@ const Result = (props) => {
           </>
         )}
       </div>
-
+      <div
+        className="start_button "
+        style={{ marginBottom: "32px" }}
+        onClick={() => {
+          window.location.reload();
+          // props.setIsStart(true);
+        }}
+      >
+        처음으로
+      </div>
       {/* <div>
         <img src={mountainDetail?.hndfmsmtnmapimageseq} alt="" />
       </div> */}

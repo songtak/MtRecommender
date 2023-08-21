@@ -8,6 +8,7 @@
     padding-right: 25%;
     overflow: visible;
     /* height: 90vh; */
+    min-width: 300px;
 
     padding-top: 100px;
     /* background-color: rgb(250, 255, 238); */
@@ -22,6 +23,7 @@
   .body {
     display: inline-block;
     text-align: center;
+    min-width: 300px;
   }
   .PrivatePickersSlideTransition-root css-dhopo2 {
     height: 240px;
