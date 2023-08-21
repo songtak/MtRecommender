@@ -391,6 +391,13 @@ const Result = (props) => {
           </>
         )}
       </div>
+      <div>
+        {!_.isEmpty(peak) &&
+          !_.isEmpty(tour) &&
+          !_.isEmpty(culture) &&
+          !_.isEmpty(traffic) &&
+          !_.isEmpty(wild) && <span>내용 없음</span>}
+      </div>
       <div
         className="start_button"
         style={{ marginBottom: "32px" }}
