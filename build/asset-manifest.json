@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MtRecommender/static/css/main.eba17074.css",
+    "main.js": "/MtRecommender/static/js/main.5f64d76c.js",
+    "static/js/787.f7c63081.chunk.js": "/MtRecommender/static/js/787.f7c63081.chunk.js",
+    "index.html": "/MtRecommender/index.html",
+    "main.eba17074.css.map": "/MtRecommender/static/css/main.eba17074.css.map",
+    "main.5f64d76c.js.map": "/MtRecommender/static/js/main.5f64d76c.js.map",
+    "787.f7c63081.chunk.js.map": "/MtRecommender/static/js/787.f7c63081.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eba17074.css",
+    "static/js/main.5f64d76c.js"
+  ]
+}
