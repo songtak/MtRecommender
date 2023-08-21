@@ -7,6 +7,9 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+import Fade from "@mui/material/Fade";
 
 import {
   REACT_APP_API_URL,
@@ -32,6 +35,7 @@ const Result = (props) => {
   const [cultureExpanded, setCultureExpanded] = useState();
   const [trafficExpanded, setTrafficExpanded] = useState();
   const [wildExpanded, setWildExpanded] = useState();
+  const [loading, setLoading] = useState(true);
 
   const handlePeakChange = (panel) => (event, newExpanded) => {
     setPeakExpanded(newExpanded ? panel : false);
@@ -238,6 +242,15 @@ const Result = (props) => {
     getMountainWild();
   }, []);
 
+  useEffect(() => {
+    !_.isUndefined(peak) &&
+      !_.isUndefined(tour) &&
+      !_.isUndefined(culture) &&
+      !_.isUndefined(traffic) &&
+      !_.isUndefined(wild) &&
+      setLoading(false);
+  }, [peak, tour, culture, traffic, wild]);
+
   return (
     <div>
       <div className="contents_title">
@@ -402,6 +415,18 @@ const Result = (props) => {
           </>
         )}
       </div>
+      <Box sx={{ height: 40 }}>
+        <Fade
+          in={loading}
+          style={{
+            transitionDelay: loading ? "800ms" : "0ms",
+          }}
+          unmountOnExit
+        >
+          <CircularProgress />
+        </Fade>
+      </Box>
+
       <div>
         {!_.isEmpty(peak) &&
           !_.isEmpty(tour) &&

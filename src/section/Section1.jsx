@@ -75,6 +75,8 @@ const Section1 = (props) => {
             /> */}
             <DatePicker
               label="생년월일"
+              openTo="year"
+              views={["year", "month", "day"]}
               value={selectedDate}
               onChange={(newValue) => {
                 setSelectedDate(newValue);
